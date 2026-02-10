@@ -58,6 +58,23 @@ uv run klima Berlin
 - **requests** - HTTP for Open-Meteo Geocoding and Weather APIs.
 - **[Open-Meteo](https://open-meteo.com)** - Weather and geocoding (no API key, free tier).
 
+## Project structure
+
+```
+src/klima/
+├── main.py           # CLI entrypoint
+├── app.py            # KlimaApp: screens, bindings, async fetch
+├── api.py            # Open-Meteo geocoding + forecast client
+├── formatting.py     # Date/day labels, day cells, chart axis helpers
+├── weather_codes.py  # WMO code → description + border color
+└── widgets/          # UI components
+    ├── current_weather.py
+    ├── city_info.py
+    ├── daily_forecast.py
+    ├── location_input.py
+    └── dashboard.py  # Main dashboard + 24h charts
+```
+
 ## Contributing
 
 Contributions are welcome. Open an issue or PR; for larger changes, an issue first is appreciated.
