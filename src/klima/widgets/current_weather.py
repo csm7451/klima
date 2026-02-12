@@ -1,5 +1,3 @@
-"""Current conditions panel with color from weather code."""
-
 from __future__ import annotations
 
 from typing import Any

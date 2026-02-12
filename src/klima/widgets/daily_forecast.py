@@ -1,5 +1,3 @@
-"""7-day forecast row (text block)."""
-
 from __future__ import annotations
 
 from typing import Any

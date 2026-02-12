@@ -1,5 +1,3 @@
-"""Screen to enter city name when not provided via CLI."""
-
 from textual.containers import Container
 from textual.widgets import Input, Label
 

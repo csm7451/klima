@@ -1,5 +1,3 @@
-"""Main weather dashboard: current conditions, 24h charts, 7-day row."""
-
 from __future__ import annotations
 
 from typing import Any
@@ -16,7 +14,7 @@ from klima.widgets.city_info import CityInfo
 
 
 class WeatherDashboard(Container):
-    """Main weather view: current, sparklines, daily."""
+    """Main weather view: current, charts, daily."""
 
     def __init__(
         self,
