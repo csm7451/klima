@@ -4,6 +4,7 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/klima"]
+force-include = { "src/klima/klima.tcss" = "klima/klima.tcss" }
 
 [project]
 name = "klima"

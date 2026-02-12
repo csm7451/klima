@@ -1,0 +1,118 @@
+Screen {
+    align: center middle;
+}
+
+#dashboard-vertical {
+    width: 100%;
+    align: center middle;
+}
+
+#location-label {
+    width: 100%;
+    content-align: center middle;
+    margin-top: 1;
+    margin-bottom: 1;
+    color: $primary;
+}
+
+#current-row {
+    width: 100%;
+    height: 11;
+    margin: 0 1 2 1;
+}
+
+#current-row #current-section {
+    width: auto;
+    max-width: 50;
+    min-width: 24;
+    height: 100%;
+}
+
+#current-row CityInfo {
+    width: 1fr;
+    min-width: 20;
+    height: 100%;
+    padding: 1 2;
+    border: heavy $surface-lighten-2;
+    color: $text-muted;
+}
+
+.section-label {
+    width: 100%;
+    margin: 1 0 0 0;
+    color: $secondary;
+    content-align: center middle;
+}
+
+#charts-row {
+    width: 100%;
+    height: auto;
+    min-height: 16;
+    margin: 0 1 2 1;
+    padding: 0;
+    border: solid $primary 30%;
+}
+
+#charts-row .chart-column {
+    width: 1fr;
+    min-width: 20;
+    height: auto;
+    align: center middle;
+}
+
+#charts-row PlotextPlot {
+    width: 100%;
+    height: 14;
+    min-height: 10;
+}
+
+#daily-row {
+    width: 100%;
+    margin: 0 1 1 1;
+    padding: 1;
+    border: solid $primary 20%;
+}
+
+#daily-row .day-cell {
+    width: 1fr;
+    min-width: 10;
+    padding: 0 1;
+    border-left: solid $primary 15%;
+}
+
+#daily-row .day-cell:first-child {
+    border-left: none;
+}
+
+LocationInputScreen {
+    width: 40;
+    height: auto;
+    padding: 2;
+    border: solid $primary;
+    align: center middle;
+}
+
+#prompt-label {
+    width: 100%;
+    margin-bottom: 1;
+}
+
+#location-input {
+    width: 100%;
+    margin-bottom: 1;
+}
+
+#hint-label {
+    width: 100%;
+    color: $text-muted;
+}
+
+.error-box {
+    width: 100%;
+    max-width: 50;
+    padding: 1 2;
+    border: solid $error;
+    color: $error;
+    margin: 1 1;
+    content-align: center middle;
+}
