@@ -4,6 +4,12 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+## [1.0.1] — 2026-05-03
+
+### Fixed
+
+- Textual SVG snapshot test for the location screen now uses fixed history data and clears `NO_COLOR` during the test so CI and local runs match the committed snapshot.
+
 ## [1.0.0] — 2026-05-03
 
 First stable release: full TUI feature set, packaging metadata, contributor docs, and security policy.
@@ -33,5 +39,6 @@ First stable release: full TUI feature set, packaging metadata, contributor docs
 - AQI/UV strip shows **current** readings from the air-quality endpoint only (daily forecast UV max is not mixed in).
 - Location panel lists each geocode field on its own labeled line (name, country, region, timezone, coordinates, elevation, population).
 
-[Unreleased]: https://github.com/YOUR_GITHUB_USER/klima/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/YOUR_GITHUB_USER/klima/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/YOUR_GITHUB_USER/klima/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/YOUR_GITHUB_USER/klima/releases/tag/v1.0.0
