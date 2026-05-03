@@ -4,40 +4,54 @@ from typing import Any
 
 from textual.widgets import Static
 
+from klima.formatting import coords_label
+
+
+def format_city_info(data: dict[str, Any] | None) -> str:
+    """One labeled line per geocode field (Open-Meteo search / resolve payload)."""
+    if not data:
+        return "—"
+    lines: list[str] = []
+    name = data.get("name", "")
+    country = data.get("country", "")
+    admin1 = data.get("admin1", "")
+    tz = data.get("timezone", "")
+    lat = data.get("latitude")
+    lon = data.get("longitude")
+    elev = data.get("elevation")
+    pop = data.get("population")
+
+    if name:
+        lines.append(f"[b]{name}[/b]")
+    if country:
+        lines.append(f"Country: {country}")
+    if admin1:
+        lines.append(f"Region: {admin1}")
+    if tz:
+        lines.append(f"Timezone: {tz}")
+    if lat is not None and lon is not None:
+        try:
+            lines.append(f"Coordinates: {coords_label(float(lat), float(lon))}")
+        except (ValueError, TypeError):
+            lines.append("Coordinates: —")
+    if elev is not None:
+        try:
+            lines.append(f"Elevation: {float(elev):.0f} m")
+        except (ValueError, TypeError):
+            lines.append("Elevation: —")
+    if pop is not None:
+        try:
+            n = int(float(pop))
+        except (ValueError, TypeError):
+            n = 0
+        if n > 0:
+            lines.append(f"Population: {n:,}")
+    return "\n".join(lines) if lines else "—"
+
 
 class CityInfo(Static):
-    """Panel showing selected city/location details from geocoding."""
+    """Location metadata from geocoding (name through population)."""
 
     def __init__(self, data: dict[str, Any] | None = None, **kwargs: Any) -> None:
         self._data = data or {}
-        content = self._format_content()
-        super().__init__(content, **kwargs)
-
-    def _format_content(self) -> str:
-        if not self._data:
-            return "—"
-        lines = []
-        name = self._data.get("name", "")
-        country = self._data.get("country", "")
-        admin1 = self._data.get("admin1", "")
-        tz = self._data.get("timezone", "")
-        lat = self._data.get("latitude")
-        lon = self._data.get("longitude")
-        elev = self._data.get("elevation")
-        pop = self._data.get("population")
-
-        if country and name:
-            lines.append(f"[b]{name}[/b], {country}")
-        elif name:
-            lines.append(f"[b]{name}[/b]")
-        if admin1:
-            lines.append(f"Region: {admin1}")
-        if tz:
-            lines.append(f"Timezone: {tz}")
-        if lat is not None and lon is not None:
-            lines.append(f"Coordinates: {lat:.2f}°N, {lon:.2f}°E")
-        if elev is not None:
-            lines.append(f"Elevation: {elev:.0f} m")
-        if pop is not None and pop > 0:
-            lines.append(f"Population: {pop:,}")
-        return "\n".join(lines) if lines else "—"
+        super().__init__(format_city_info(self._data), **kwargs)

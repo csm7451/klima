@@ -1,15 +1,15 @@
 """UI components for the weather dashboard."""
 
-from klima.widgets.current_weather import CurrentWeather
 from klima.widgets.city_info import CityInfo
-from klima.widgets.daily_forecast import DailyForecast
-from klima.widgets.location_input import LocationInputScreen
+from klima.widgets.compare_dashboard import CompareDashboard
+from klima.widgets.current_weather import CurrentWeather
 from klima.widgets.dashboard import WeatherDashboard
+from klima.widgets.location_input import LocationInputScreen
 
 __all__ = [
-    "CurrentWeather",
     "CityInfo",
-    "DailyForecast",
+    "CompareDashboard",
+    "CurrentWeather",
     "LocationInputScreen",
     "WeatherDashboard",
 ]
