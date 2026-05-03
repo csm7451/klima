@@ -24,7 +24,7 @@ klima = "klima.main:main"
 [dependency-groups]
 dev = [
     "mypy>=1.19.1",
-    "pytest>=9.0.2",
+    "pytest>=9.0.3",
     "ruff>=0.14.10",
     "textual-dev>=1.8.0",
 ]
